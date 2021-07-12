@@ -15,6 +15,7 @@ function playerSelection () {
     return userInput.toLowerCase();
 }
 
+//funtion to play one round and get back a `win`, `loose`, `draw` result
 function playRound (player, computer){
     if (player === computer) {
         roundResult = "draw";
@@ -35,6 +36,7 @@ function playRound (player, computer){
     }
 }
 
+//the loop runs rounds on the principle of "5 out of 3" where the draws do not count
 while (playerScore !== 3 && computerScore !== 3){
     switch (playRound(playerSelection(),computerSelection())) {
         case `win`:
@@ -51,6 +53,7 @@ while (playerScore !== 3 && computerScore !== 3){
     }
 }
 
+//display final outcome of the game to the player
 if (computerScore === 3) {
     console.log ('You lost the game!');
 }
