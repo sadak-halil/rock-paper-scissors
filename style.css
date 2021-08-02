@@ -1,0 +1,48 @@
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.scoreContainer {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  justify-content: space-around;
+  grid-template-areas:
+    "You Computer"
+    "displayPlayerScore displayComputerScore";
+}
+
+.You {
+  grid-area: You;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Computer {
+  grid-area: Computer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.displayPlayerScore {
+  grid-area: displayPlayerScore;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.displayComputerScore {
+  grid-area: displayComputerScore;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

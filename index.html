@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Rock Paper Scissors</title>
-<meta charset="UTF-8">
-</head>
+  <head>
+    <title>Rock Paper Scissors</title>
+    <meta charset="UTF-8" />
+    <script src="game.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-<script src="game.js"></script>  
-</body>
- 
+  <body>
+    <div class="flex-container">
+      <button value="rock">Rock</button>
+      <button value="paper">Paper</button>
+      <button value="scissors">Scissors</button>
+    </div>
+
+    <div class="scoreContainer">
+      <div class="You">Your Score</div>
+      <div class="Computer">Computer Score</div>
+      <div class="displayPlayerScore">0</div>
+      <div class="displayComputerScore">0</div>
+    </div>
+  </body>
 </html>
