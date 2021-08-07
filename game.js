@@ -85,6 +85,24 @@ const choices = ["rock", "paper", "scissors"];
 const buttons = document.querySelectorAll("button");
 const displayPlayerScore = document.querySelector(".displayPlayerScore");
 const displayComputerScore = document.querySelector(".displayComputerScore");
+const scoreBoard = document.querySelector("body");
+
+const updateScore = (playerScore, computerScore) => {
+  displayPlayerScore.textContent = playerScore;
+  displayComputerScore.textContent = computerScore;
+};
+
+const gameEndMessage = (playerScore, computerScore) => {
+  const message = document.createElement("div");
+  if (playerScore === 5) {
+    message.textContent = `Congratulations, you won!`;
+    return message;
+  } else if (computerScore === 5) {
+    message.textContent = `You lost, better luck next time`;
+    return message;
+  }
+  return message;
+};
 
 // the whole round logic and computer's random selection happens in this function and returns a result of the round
 const playRound = (e) => {
@@ -96,18 +114,18 @@ const playRound = (e) => {
   switch (player) {
     case `rock`:
       computer === `scissors` ? playerScore++ : computerScore++;
-      displayPlayerScore.textContent = playerScore;
-      displayComputerScore.textContent = computerScore;
+      updateScore(playerScore, computerScore);
+      scoreBoard.appendChild(gameEndMessage(playerScore, computerScore));
       break;
     case `paper`:
       computer === `rock` ? playerScore++ : computerScore++;
-      displayPlayerScore.textContent = playerScore;
-      displayComputerScore.textContent = computerScore;
+      updateScore(playerScore, computerScore);
+      scoreBoard.appendChild(gameEndMessage(playerScore, computerScore));
       break;
     case `scissors`:
       computer === `paper` ? playerScore++ : computerScore++;
-      displayPlayerScore.textContent = playerScore;
-      displayComputerScore.textContent = computerScore;
+      updateScore(playerScore, computerScore);
+      scoreBoard.appendChild(gameEndMessage(playerScore, computerScore));
       break;
   }
 };
@@ -115,6 +133,3 @@ const playRound = (e) => {
 buttons.forEach((button) => {
   button.addEventListener("click", playRound);
 });
-
-// TODO A while loop to display nothing while the the players are below 5 point(google how to display a message under specific condition plus a reset button to reset the score)
-// while (computerScore !== 5 && playerScore !== 5){}
